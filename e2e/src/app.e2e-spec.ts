@@ -1,14 +1,21 @@
 import { AppPage } from './app.po';
+import {ClientFormPage} from './client-form.po';
 
 describe('workspace-project App', () => {
-  let page: AppPage;
+  let pageRoot: AppPage;
+  let pageClientForm: ClientFormPage;
 
   beforeEach(() => {
-    page = new AppPage();
+    pageRoot = new AppPage();
+    pageClientForm = new ClientFormPage();
   });
 
   it('should display welcome message', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to angular6-banque!');
+    pageRoot.navigateTo();
+    expect(pageRoot.getAppTitle()).toEqual('Ma Banque');
+  });
+  it('doit afficher le formulaire client', () => {
+    pageClientForm.navigateTo();
+    expect(pageClientForm.getPageTitle()).toEqual('Nouveau client');
   });
 });

@@ -1,0 +1,7 @@
+<h2 i18n="@@clientsCmpTitre" >Liste des clients</h2>
+<mat-nav-list>
+  <a mat-list-item [routerLink]='["/client",cli.id]' *ngFor="let cli of clients | slice:0:100" >
+    {{cli.prenom | titlecase }} {{cli.nom | uppercase }}&nbsp;
+    <span *ngIf="cli.comptes && cli.comptes.length != 0"> ({{cli.comptes.length}} comptes)</span>
+  </a>
+</mat-nav-list>

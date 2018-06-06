@@ -1,0 +1,12 @@
+<h2>{{client.prenom | capitalize}} {{client.nom | uppercase}}</h2>
+<mat-list >
+  <mat-list-item *ngFor="let cpt of client.comptes">
+    {{cpt.numero}} {{cpt.intitule}}
+    <span *ngIf="cpt.operations && cpt.operations.length != 0; else pasOperation" >
+      ({{cpt.operations.length}} opérations)
+    </span>
+    <ng-template #pasOperation>
+      <span>Aucune opération.</span>
+    </ng-template>
+  </mat-list-item>
+</mat-list>

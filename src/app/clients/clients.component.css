@@ -1,0 +1,12 @@
+/*input{*/
+  /*border: 0 none transparent;*/
+  /*border-left: 5px solid #ccc;*/
+  /*box-shadow: 0 0 4px #cccccc;*/
+/*}*/
+
+/*input.ng-dirty.ng-invalid {*/
+  /*border-left-color: #c00;*/
+/*}*/
+/*input.ng-valid {*/
+  /*border-left-color: #090;*/
+/*}*/

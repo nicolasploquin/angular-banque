@@ -1,0 +1,37 @@
+<h2>Nouveau client</h2>
+<form (submit)="enregistrer()" #clientForm="ngForm">
+  <label for="champ-nom">Nom</label>
+  <input id="champ-nom" #champNom="ngModel" name="nom" required [(ngModel)]="client.nom"
+    [class]="champNom.invalid?'erreur':''"
+  />
+
+  <br/>
+  <label for="champ-prenom" >Prénom</label>
+  <input id="champ-prenom" #champPrenom="ngModel" name="prenom" [(ngModel)]="client.prenom" pattern="[a-zA-Z]{3,}" />
+  <span [hidden]="champPrenom.valid">Le prénom doit contenir 3 lettres au minimum</span>
+  <br/>
+  <button type="submit" [disabled]="clientForm.invalid">Enregistrer</button>
+</form>
+
+
+
+<!--
+<form (submit)="enregistrer()">
+  <mat-form-field>
+    <input matInput placeholder="Saisir votre nom" required [formControl]="nommd"><!- [formControl]="nommd"  ->
+    <mat-error [hidden]="nommd.invalid" >Le nom est obligatoire.</mat-error><!- *ngIf="nommd.invalid" ->
+  </mat-form-field>
+  <button mat-button type="submit" >Enregistrer</button>
+</form>
+<form (submit)="enregistrer()" #formClient="ngForm">
+  <label for="nom">Nom</label>
+  <input id="nom" name="nom"  #inputNom="ngModel" required [(ngModel)]="client.nom" />
+  <span [hidden]="!(inputNom.touched && inputNom.invalid)" >Le nom est obligatoire.</span>
+  <br/>
+  <label for="prenom">Prénom</label>
+  <input id="prenom" name="prenom" #inputPrenom="ngModel" [(ngModel)]="client.prenom" />
+  <br/>
+  <button mat-button type="submit" [disabled]="formClient.invalid">Enregistrer</button>
+</form>
+<pre>{{ client | json }}</pre>
+-->

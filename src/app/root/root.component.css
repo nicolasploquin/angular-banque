@@ -1,0 +1,20 @@
+mat-toolbar {
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+}
+mat-toolbar > * {
+   margin-left: 8px;
+   margin-right: 4px;
+}
+
+h1 {
+  flex: 1 0 auto;
+}
+p {
+  text-align: center;
+  font-weight: bold;
+}
+.fill-flex {
+  flex: 3 1 0;
+}

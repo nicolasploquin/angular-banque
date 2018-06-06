@@ -1,0 +1,13 @@
+<form (submit)="onSubmit()" #authForm="ngForm">
+  <mat-form-field>
+    <input matInput name="identifiant" placeholder="Identifiant" [(ngModel)]="model.identifiant" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput name="motdepasse" placeholder="Mot de passe" [(ngModel)]="model.motdepasse" required>
+  </mat-form-field>
+  <button mat-mini-fab color="accent" type="submit" [disabled]="!authForm.form.valid"><mat-icon>done</mat-icon></button>
+</form>
+
+<!--
+<p (click)="action()">{{identifiant}}</p>
+-->
