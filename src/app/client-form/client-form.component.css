@@ -1,3 +1,9 @@
-.erreur {
-  outline: 3px solid #c00;
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
+
+/*.erreur {*/
+  /*outline: 3px solid #c00;*/
+/*}*/
