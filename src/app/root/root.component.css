@@ -9,7 +9,7 @@ mat-toolbar > * {
 }
 
 h1 {
-  flex: 1 0 auto;
+  margin-right: 1em;
 }
 p {
   text-align: center;
