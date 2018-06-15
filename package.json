@@ -6,7 +6,7 @@
     "start": "ng serve --port=4400",
     "startEN": "ng serve --port=4400 --configuration=en",
     "build": "ng build --prod",
-    "buildEN": "ng build --configuration=en",
+    "buildEN": "ng build --configuration=production-en",
     "buildES6": "ng build --prod --output-path=dist-es6 !!!erreur",
     "buildProd": "ng test --prod --watch=false && ng build --prod",
     "test": "ng test --watch=false",
