@@ -33,7 +33,7 @@ export class ClientsComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     console.log('clients onInit()');
-    this.dataService.getClients().then( data => this.clients = data );
+    this.dataService.getClients().subscribe( data => this.clients = data );
   }
 
   // Rechargement de la liste à chaque affichage du  composant

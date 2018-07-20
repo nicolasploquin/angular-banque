@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Client } from '../model/client';
 import {BanqueService} from './banque.service';
 import {BanqueAsyncService} from './banque-async.service';
+import {Observable, of} from 'rxjs';
 
 @Injectable()
 export class BanqueLocalAsyncService implements BanqueAsyncService {
@@ -21,8 +22,12 @@ export class BanqueLocalAsyncService implements BanqueAsyncService {
     localStorage.setItem('data', JSON.stringify({clients: this._clients}));
   }
 
-  getClients(): Promise<Client[]> {
-    return Promise.resolve(this._clients);
+  // ES6 Promise
+  // getClients(): Promise<Client[]> {
+  //   return Promise.resolve(this._clients);
+  // }
+  getClients(): Observable<Client[]> {
+    return of(this._clients);
   }
 
   getClient(id: number): Promise<Client> {
