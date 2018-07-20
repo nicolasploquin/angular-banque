@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Client } from '../model/client';
 import {BanqueService} from './banque.service';
 import {BanqueAsyncService} from './banque-async.service';
-import {Observable, of} from 'rxjs';
+import {Observable, of, EMPTY} from 'rxjs';
 
 @Injectable()
 export class BanqueLocalAsyncService implements BanqueAsyncService {
@@ -34,16 +34,18 @@ export class BanqueLocalAsyncService implements BanqueAsyncService {
     return Promise.resolve(this._clients.find(cli => cli.id === id));
   }
 
-  addClient(client: Client): Promise<void> {
+  addClient(client: Client): Observable<void> {
     // client.id = Math.max(...this._clients.map(cli => cli.id)) + 1;
     // client.id = this._clients.reduce(function(cli1, cli2){
     //     return cli1.id > cli2.id ? cli1 : cli2;
     // }).id + 1;
-    // client.id = this._clients.reduce((cli1, cli2) =>  cli1.id > cli2.id ? cli1 : cli2).id + 1;
+    if (!client.id) {
+      client.id = this._clients.reduce((cli1, cli2) =>  cli1.id > cli2.id ? cli1 : cli2).id + 1
+    }
     this._clients.push(client);
     this.save();
 
-    return Promise.resolve();
+    return EMPTY;
   }
 
 

@@ -23,9 +23,8 @@ export class ClientFormComponent implements OnInit {
   }
 
   enregistrer() {
-    this.dataService.addClient(this.client).then(
+    this.dataService.addClient(this.client).subscribe(
       () => this.router.navigate(['/clients'])
-      // () => this.router.navigate([ROUTE_LISTE_CLIENTS])
     );
     // this.router.navigate(['/clients']);
   }
