@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 
 import { Client } from '../model/client';
-import {BanqueService} from './banque.service';
-import {BanqueAsyncService} from './banque-async.service';
-import {Observable, of, EMPTY} from 'rxjs';
+import { BanqueAsyncService } from './banque-async.service';
+import { Observable, of, EMPTY } from 'rxjs';
 
 @Injectable()
 export class BanqueLocalAsyncService implements BanqueAsyncService {
