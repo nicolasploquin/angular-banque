@@ -30,8 +30,8 @@ export class BanqueLocalAsyncService implements BanqueAsyncService {
     return of(this._clients);
   }
 
-  getClient(id: number): Promise<Client> {
-    return Promise.resolve(this._clients.find(cli => cli.id === id));
+  getClient(id: number): Observable<Client> {
+    return of(this._clients.find(cli => cli.id === id));
   }
 
   addClient(client: Client): Observable<void> {

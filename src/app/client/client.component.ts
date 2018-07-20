@@ -25,7 +25,7 @@ export class ClientComponent implements OnInit {
   ngOnInit() {
     const id = parseInt(this.route.snapshot.params['id'], 10);
     this.dataService.getClient(id)
-      .then( client => this.client = client );
+      .subscribe( client => this.client = client );
     // this.client = this.dataService.getClient(id);
   }
 

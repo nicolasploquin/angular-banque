@@ -25,18 +25,20 @@ export class BanqueRestService implements BanqueAsyncService {
   //   });
   // }
   getClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(`${this.api}/clients`);
+    return this.http
+      .get<Client[]>(`${this.api}/clients`)
+      ;
   }
   addClient(client: Client): Observable<void> {
     return this.http
-      .post<void>(`${this.api}/clients/post`, client);
+      .post<void>(`${this.api}/clients/post`, client)
+      ;
   }
 
-  getClient(id: number): Promise<Client> {
-    return new Promise<Client>((resolve, reject) => {
-      this.http.get<Client>(`${this.api}/clients/${id}`)
-        .subscribe( data => resolve(data) );
-    });
+  getClient(id: number): Observable<Client> {
+    return this.http
+      .get<Client>(`${this.api}/clients/${id}`)
+      ;
   }
 
 }
