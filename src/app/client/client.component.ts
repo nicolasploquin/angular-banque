@@ -17,7 +17,7 @@ export class ClientComponent implements OnInit {
 
   client: Client = new Client();
 
-  constructor(dataService: BanqueRestService, route: ActivatedRoute) {
+  constructor(dataService: BanqueAsyncService, route: ActivatedRoute) {
     this.dataService = dataService;
     this.route = route;
   }

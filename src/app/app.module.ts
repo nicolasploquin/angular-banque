@@ -1,26 +1,24 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {LOCALE_ID, NgModule} from '@angular/core';
-
-import {BanqueHttpService} from './services/banque-http.service';
-import {BanqueLocalService} from './services/banque-local.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {CapitalizePipe} from './pipes/capitalize.pipe';
-import {ClientFormComponent} from './client-form/client-form.component';
-import {ClientsComponent} from './clients/clients.component';
-import {FormsModule} from '@angular/forms';
-import {MaterialModule} from './material.module';
-import {RootComponent} from './root/root.component';
-import {RouterModule} from '@angular/router';
-import {ROUTES} from './app.routes';
-import {BanqueRestService} from './services/banque-rest.service';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
+import {MaterialModule} from './material.module';
+
+import {environment} from '../environments/environment';
+import {ROUTES} from './app.routes';
+
+import {RootComponent} from './root/root.component';
+import {ClientsComponent} from './clients/clients.component';
 import {ClientComponent} from './client/client.component';
-import {BanqueLocalAsyncService} from './services/banque-local-async.service';
+import {ClientFormComponent} from './client-form/client-form.component';
 import {AuthentificationComponent} from './shared/authentification/authentification.component';
-import {CommonModule, registerLocaleData} from '@angular/common';
-import localeFr from '@angular/common/locales/fr';
-import { DemoComponent } from './demo/demo.component';
-import { MessageComponent } from './shared/message/message.component';
+import {DemoComponent} from './demo/demo.component';
+import {MessageComponent} from './shared/message/message.component';
+import {CapitalizePipe} from './pipes/capitalize.pipe';
+import {BanqueAsyncService} from './services/banque-async.service';
 
 // registerLocaleData(localeFr, 'fr');
 
@@ -46,11 +44,13 @@ export const APP_IMPORTS = [
 ];
 
 export const APP_PROVIDERS = [
-//    { provide: LOCALE_ID, useValue: 'fr' },
-  BanqueLocalService,
-  BanqueLocalAsyncService,
-  BanqueHttpService,
-  BanqueRestService
+  // { provide: LOCALE_ID, useValue: 'fr' },
+  // BanqueLocalService,
+  // BanqueHttpService,
+  // BanqueLocalAsyncService,
+  // BanqueRestService,
+  // {provide: BanqueAsyncService, useClass: BanqueRestService}
+  {provide: BanqueAsyncService, useClass: environment.dataProvider}
 ];
 
 @NgModule({

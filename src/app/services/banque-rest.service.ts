@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import {BanqueService} from './banque.service';
 import {HttpClient} from '@angular/common/http';
 import {Client} from '../model/client';
-import {environment} from '../../environments/environment';
 import {BanqueAsyncService} from './banque-async.service';
 import {Observable} from 'rxjs';
 
 @Injectable()
-export class BanqueRestService implements BanqueAsyncService {
+export class BanqueRestService extends BanqueAsyncService {
 
   private http: HttpClient;
-  private api: string = environment.api;
+  private api = 'https://banque-api.azurewebsites.net/api';
 
   constructor(http: HttpClient) {
+    super();
     this.http = http;
   }
 

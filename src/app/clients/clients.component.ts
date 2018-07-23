@@ -1,11 +1,8 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Client} from '../model/client';
 import {FormControl, Validators} from '@angular/forms';
-import {BanqueService} from '../services/banque.service';
-import {BanqueRestService} from '../services/banque-rest.service';
 import {BanqueAsyncService} from '../services/banque-async.service';
-import {BanqueLocalAsyncService} from '../services/banque-local-async.service';
-import {BanqueLocalService} from '../services/banque-local.service';
+import {BanqueRestService} from '../services/banque-rest.service';
 
 @Component({
   selector: 'app-clients',
@@ -23,13 +20,10 @@ export class ClientsComponent implements OnInit, AfterViewInit {
 
   client: Client;
 
-  nommd = new FormControl('', [Validators.required, Validators.email]);
-
-  constructor(dataService: BanqueRestService) {
+  constructor(dataService: BanqueAsyncService) {
     this.dataService = dataService;
     this.clients = [];
   }
-
 
   ngOnInit() {
     console.log('clients onInit()');

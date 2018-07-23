@@ -39,7 +39,7 @@ export class BanqueLocalAsyncService implements BanqueAsyncService {
     //     return cli1.id > cli2.id ? cli1 : cli2;
     // }).id + 1;
     if (!client.id) {
-      client.id = this._clients.reduce((cli1, cli2) =>  cli1.id > cli2.id ? cli1 : cli2).id + 1
+      client.id = this._clients.reduce((cli1, cli2) =>  cli1.id > cli2.id ? cli1 : cli2).id + 1;
     }
     this._clients.push(client);
     this.save();
