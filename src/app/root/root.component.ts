@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./root.component.css']
 })
 export class RootComponent {
-  username: string = 'Ben';
+  username: string = '';
   showAuthForm = false;
 
   ajd: Date = new Date();
