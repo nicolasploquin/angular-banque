@@ -23,7 +23,8 @@
         </button> -->
   </mat-toolbar>
   <app-authentification [identifiant]="username"
-                        [hidden]="!showAuthForm" (auth)="authentification($event)"
+                        [hidden]="!showAuthForm"
+                        (auth)="authentification($event)"
   ></app-authentification>
 <!--
   <app-authentification (changement)="recupererIdentifiant($event)" ></app-authentification>

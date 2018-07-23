@@ -1,6 +1,4 @@
-export class AuthModel {
-  constructor(
-    public identifiant: string,
-    public motdepasse: string
-  ) {}
+export interface AuthModel {
+  identifiant: string;
+  motdepasse: string;
 }
