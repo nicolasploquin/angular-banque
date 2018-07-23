@@ -1,11 +1,11 @@
-import {Component, OnInit, Input, Output, EventEmitter, OnChanges} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck} from '@angular/core';
 
 @Component({
   selector: 'app-message',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.css']
 })
-export class MessageComponent implements OnInit, OnChanges {
+export class MessageComponent implements OnInit, OnChanges, DoCheck {
 
   @Input()
   public texte = 'valeur par défaut...';
@@ -34,5 +34,9 @@ export class MessageComponent implements OnInit, OnChanges {
     if (this.texte.length > 40) {
       this.tropLong.emit();
     }
+  }
+
+  ngDoCheck(){
+    console.log('ngDoCheck...');
   }
 }

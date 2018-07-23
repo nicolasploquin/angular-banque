@@ -24,33 +24,39 @@ import { MessageComponent } from './shared/message/message.component';
 
 // registerLocaleData(localeFr, 'fr');
 
-@NgModule({
-  declarations: [
-    RootComponent,
-    ClientsComponent,
-    ClientFormComponent,
-    ClientComponent,
-    CapitalizePipe,
-    AuthentificationComponent,
-    DemoComponent,
-    MessageComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    CommonModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(ROUTES),
-    MaterialModule
-  ],
-  providers: [
+export const APP_DECLARATIONS = [
+  RootComponent,
+  ClientsComponent,
+  ClientFormComponent,
+  ClientComponent,
+  CapitalizePipe,
+  AuthentificationComponent,
+  DemoComponent,
+  MessageComponent
+];
+
+export const APP_IMPORTS = [
+  BrowserModule,
+  BrowserAnimationsModule,
+  CommonModule,
+  FormsModule,
+  HttpClientModule,
+  RouterModule.forRoot(ROUTES),
+  MaterialModule
+];
+
+export const APP_PROVIDERS = [
 //    { provide: LOCALE_ID, useValue: 'fr' },
-    BanqueLocalService,
-    BanqueLocalAsyncService,
-    BanqueHttpService,
-    BanqueRestService
-  ],
+  BanqueLocalService,
+  BanqueLocalAsyncService,
+  BanqueHttpService,
+  BanqueRestService
+];
+
+@NgModule({
+  declarations: APP_DECLARATIONS,
+  imports: APP_IMPORTS,
+  providers: APP_PROVIDERS,
   bootstrap: [RootComponent]
 })
 export class AppModule { }

@@ -82,7 +82,20 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "demo": {
+              "outputPath": "dist/demo/",
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             }
+
           }
         },
         "serve": {
@@ -123,6 +136,16 @@
               "src/favicon.ico",
               "src/assets"
             ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         },
         "lint": {
@@ -152,6 +175,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "angular6-banque:serve:production"
+            },
+            "en": {
+              "devServerTarget": "angular6-banque:serve:en"
             }
           }
         },

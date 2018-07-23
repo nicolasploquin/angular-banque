@@ -2,6 +2,7 @@
 
 # compiled output
 # /dist # pour déploiement Azure
+/dist/demo
 /tmp
 /out-tsc
 
