@@ -16,9 +16,11 @@ import {BanqueRestService} from './services/banque-rest.service';
 import {HttpClientModule} from '@angular/common/http';
 import {ClientComponent} from './client/client.component';
 import {BanqueLocalAsyncService} from './services/banque-local-async.service';
-import {AuthentificationComponent} from './authentification/authentification.component';
+import {AuthentificationComponent} from './shared/authentification/authentification.component';
 import {CommonModule, registerLocaleData} from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { DemoComponent } from './demo/demo.component';
+import { MessageComponent } from './shared/message/message.component';
 
 // registerLocaleData(localeFr, 'fr');
 
@@ -29,7 +31,9 @@ import localeFr from '@angular/common/locales/fr';
     ClientFormComponent,
     ClientComponent,
     CapitalizePipe,
-    AuthentificationComponent
+    AuthentificationComponent,
+    DemoComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
