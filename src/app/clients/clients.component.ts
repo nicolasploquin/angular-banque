@@ -3,6 +3,9 @@ import {Client} from '../model/client';
 import {FormControl, Validators} from '@angular/forms';
 import {BanqueAsyncService} from '../services/banque-async.service';
 import {BanqueRestService} from '../services/banque-rest.service';
+import {Select, Store} from '@ngxs/store';
+import {Observable} from 'rxjs';
+import {BanqueState, LoadClients} from '../store/banque.state';
 
 @Component({
   selector: 'app-clients',
@@ -11,23 +14,31 @@ import {BanqueRestService} from '../services/banque-rest.service';
 })
 export class ClientsComponent implements OnInit, AfterViewInit {
 
+  private banque: Store;
   private dataService: BanqueAsyncService;
 
   // clients: Array;
   // clients: Object[];
   // clients: Array<Client>;
-  clients: Client[] = [];
+  @Select(BanqueState.clients)
+  clients$: Observable<Client[]>;
 
   client: Client;
 
-  constructor(dataService: BanqueAsyncService) {
+
+  constructor(
+    banque: Store,
+    dataService: BanqueAsyncService
+  ) {
+    this.banque = banque;
     this.dataService = dataService;
-    this.clients = [];
+    // this.clients = [];
   }
 
   ngOnInit() {
     console.log('clients onInit()');
-    this.dataService.getClients().subscribe( data => this.clients = data );
+    this.banque.dispatch(new LoadClients());
+//    this.clients = this.dataService.getClients(); //.subscribe( data => this.clients = data );
   }
 
   // Rechargement de la liste à chaque affichage du  composant

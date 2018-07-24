@@ -19,6 +19,8 @@ import {DemoComponent} from './demo/demo.component';
 import {MessageComponent} from './shared/message/message.component';
 import {CapitalizePipe} from './pipes/capitalize.pipe';
 import {BanqueAsyncService} from './services/banque-async.service';
+import {NgxsModule} from '@ngxs/store';
+import {BanqueState} from './store/banque.state';
 
 // registerLocaleData(localeFr, 'fr');
 
@@ -40,7 +42,8 @@ export const APP_IMPORTS = [
   FormsModule,
   HttpClientModule,
   RouterModule.forRoot(ROUTES),
-  MaterialModule
+  MaterialModule,
+  NgxsModule.forRoot([BanqueState])
 ];
 
 export const APP_PROVIDERS = [
