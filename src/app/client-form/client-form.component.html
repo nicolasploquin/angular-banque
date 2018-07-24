@@ -1,18 +1,24 @@
-<h2>Nouveau client</h2>
+<h2 i18n="Titre formulaire client|Création ou modification d'un nouveau client@@clientFormTitle">Nouveau client</h2>
 <form (submit)="enregistrer()" #clientForm="ngForm">
   <mat-form-field>
     <input matInput placeholder="Nom du client" name="nom"
+           i18n-placeholder="Champ nom|Nom du nouveau client@@clientFormInputNom"
            [(ngModel)]="client.nom" #champNom="ngModel"
            required
     />
-    <mat-error [hidden]="champNom.valid">Le nom est obligatoire.</mat-error>
+    <mat-error [hidden]="champNom.valid"
+               i18n="Erreur champ nom|Erreur champ obligatoire@@clientFormInputNomErreur"
+      >Le nom est obligatoire.</mat-error>
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Prénom du client" name="prenom"
+           i18n-placeholder="Champ prénom|Prénom du nouveau client@@clientFormInputPrenom"
            [(ngModel)]="client.prenom" #champPrenom="ngModel"
            pattern="[a-zA-Z]{3,}"
     />
-    <mat-error [hidden]="champPrenom.valid">Le prénom doit contenir 3 lettres au minimum.</mat-error>
+    <mat-error [hidden]="champPrenom.valid"
+               i18n="Erreur champ prenom|Erreur champ longueur minimum 3 caractères@@clientFormInputPrenomErreur"
+      >Le prénom doit contenir 3 lettres au minimum.</mat-error>
   </mat-form-field>
   <!---->
   <!--<label for="champ-nom">Nom</label>-->
@@ -26,7 +32,9 @@
   <!--<span [hidden]="champPrenom.valid">Le prénom doit contenir 3 lettres au minimum</span>-->
   <!--<br/>-->
   <button mat-button color="primary"
-          type="submit" [disabled]="clientForm.invalid">Enregistrer</button>
+          type="submit" [disabled]="clientForm.invalid"
+          i18n="Bouton enregistrer|Enregistrer le noouveau client@@clientFormBoutonEnregistrer"
+    >Enregistrer</button>
 </form>
 
 

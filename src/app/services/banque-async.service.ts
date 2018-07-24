@@ -1,7 +1,8 @@
 import {Client} from '../model/client';
+import {Observable} from 'rxjs';
 
-export interface BanqueAsyncService {
-  getClients(): Promise<Client[]> ;
-  getClient(id: number): Promise<Client> ;
-  addClient(client: Client): Promise<void> ;
+export abstract class BanqueAsyncService {
+  abstract getClients(): Observable<Client[]> ;
+  abstract getClient(id: number): Observable<Client> ;
+  abstract addClient(client: Client): Observable<void> ;
 }

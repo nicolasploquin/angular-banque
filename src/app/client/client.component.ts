@@ -17,7 +17,7 @@ export class ClientComponent implements OnInit {
 
   client: Client = new Client();
 
-  constructor(dataService: BanqueRestService, route: ActivatedRoute) {
+  constructor(dataService: BanqueAsyncService, route: ActivatedRoute) {
     this.dataService = dataService;
     this.route = route;
   }
@@ -25,7 +25,7 @@ export class ClientComponent implements OnInit {
   ngOnInit() {
     const id = parseInt(this.route.snapshot.params['id'], 10);
     this.dataService.getClient(id)
-      .then( client => this.client = client );
+      .subscribe( client => this.client = client );
     // this.client = this.dataService.getClient(id);
   }
 
