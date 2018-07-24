@@ -50,7 +50,7 @@ export const APP_PROVIDERS = [
   // BanqueLocalAsyncService,
   // BanqueRestService,
   // {provide: BanqueAsyncService, useClass: BanqueRestService}
-  {provide: BanqueAsyncService, useClass: environment.dataProvider}
+  {provide: BanqueAsyncService, useClass : environment.dataProvider}
 ];
 
 @NgModule({

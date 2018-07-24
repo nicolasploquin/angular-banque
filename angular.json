@@ -13,9 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/fr/",
             "baseHref": "/fr/",
-            "i18nFile": "src/locale/messages.fr.xlf",
             "i18nFormat": "xlf",
             "i18nLocale": "fr",
             "index": "src/index.html",
@@ -37,11 +37,9 @@
           },
           "configurations": {
             "en": {
-              "aot": true,
               "outputPath": "dist/en/",
               "baseHref": "/en/",
               "i18nFile": "src/locale/messages.en.xlf",
-              "i18nFormat": "xlf",
               "i18nLocale": "en"
             },
             "production": {
@@ -71,7 +69,6 @@
               "outputPath": "dist/en/",
               "baseHref": "/en/",
               "i18nFile": "src/locale/messages.en.xlf",
-              "i18nFormat": "xlf",
               "i18nLocale": "en",
               "optimization": true,
               "outputHashing": "all",
@@ -109,6 +106,9 @@
             },
             "production": {
               "browserTarget": "angular6-banque:build:production"
+            },
+            "production-en": {
+              "browserTarget": "angular6-banque:build:production-en"
             }
           }
         },
