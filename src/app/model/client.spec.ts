@@ -12,6 +12,6 @@ describe('Classe métier Client', () => {
   it('doit contenir un tableau de compte vide', () => {
     const client = new Client();
     expect(client.comptes).toBeTruthy();
-    expect(client.comptes.length).toEqual(0);
+    expect(client.comptes.length).toBe(0); // ===
   });
 });

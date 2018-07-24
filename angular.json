@@ -13,9 +13,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist/fr/",
             "baseHref": "/fr/",
-            "i18nFile": "src/locale/messages.fr.xlf",
             "i18nFormat": "xlf",
             "i18nLocale": "fr",
             "index": "src/index.html",
@@ -37,11 +37,9 @@
           },
           "configurations": {
             "en": {
-              "aot": true,
               "outputPath": "dist/en/",
               "baseHref": "/en/",
               "i18nFile": "src/locale/messages.en.xlf",
-              "i18nFormat": "xlf",
               "i18nLocale": "en"
             },
             "production": {
@@ -71,7 +69,6 @@
               "outputPath": "dist/en/",
               "baseHref": "/en/",
               "i18nFile": "src/locale/messages.en.xlf",
-              "i18nFormat": "xlf",
               "i18nLocale": "en",
               "optimization": true,
               "outputHashing": "all",
@@ -82,7 +79,20 @@
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true
+            },
+            "demo": {
+              "outputPath": "dist/demo/",
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
             }
+
           }
         },
         "serve": {
@@ -96,6 +106,9 @@
             },
             "production": {
               "browserTarget": "angular6-banque:build:production"
+            },
+            "production-en": {
+              "browserTarget": "angular6-banque:build:production-en"
             }
           }
         },
@@ -123,6 +136,16 @@
               "src/favicon.ico",
               "src/assets"
             ]
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            }
           }
         },
         "lint": {
@@ -152,6 +175,9 @@
           "configurations": {
             "production": {
               "devServerTarget": "angular6-banque:serve:production"
+            },
+            "en": {
+              "devServerTarget": "angular6-banque:serve:en"
             }
           }
         },

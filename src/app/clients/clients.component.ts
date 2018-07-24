@@ -1,11 +1,11 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Client} from '../model/client';
 import {FormControl, Validators} from '@angular/forms';
-import {BanqueService} from '../services/banque.service';
-import {BanqueRestService} from '../services/banque-rest.service';
 import {BanqueAsyncService} from '../services/banque-async.service';
-import {BanqueLocalAsyncService} from '../services/banque-local-async.service';
-import {BanqueLocalService} from '../services/banque-local.service';
+import {BanqueRestService} from '../services/banque-rest.service';
+import {Select, Store} from '@ngxs/store';
+import {Observable} from 'rxjs';
+import {BanqueState, LoadClients} from '../store/banque.state';
 
 @Component({
   selector: 'app-clients',
@@ -14,26 +14,31 @@ import {BanqueLocalService} from '../services/banque-local.service';
 })
 export class ClientsComponent implements OnInit, AfterViewInit {
 
+  private banque: Store;
   private dataService: BanqueAsyncService;
 
   // clients: Array;
   // clients: Object[];
   // clients: Array<Client>;
-  clients: Client[] = [];
+  @Select(BanqueState.clients)
+  clients$: Observable<Client[]>;
 
   client: Client;
 
-  nommd = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(dataService: BanqueRestService) {
+  constructor(
+    banque: Store,
+    dataService: BanqueAsyncService
+  ) {
+    this.banque = banque;
     this.dataService = dataService;
-    this.clients = [];
+    // this.clients = [];
   }
-
 
   ngOnInit() {
     console.log('clients onInit()');
-    this.dataService.getClients().then( data => this.clients = data );
+    this.banque.dispatch(new LoadClients());
+//    this.clients = this.dataService.getClients(); //.subscribe( data => this.clients = data );
   }
 
   // Rechargement de la liste à chaque affichage du  composant

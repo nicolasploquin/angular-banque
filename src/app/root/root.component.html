@@ -3,14 +3,15 @@
     <h1>Ma Banque</h1>
     <a routerLink="/clients" mat-button>Clients</a>
     <a routerLink="/client/form" mat-button>Nouveau</a>
+    <a routerLink="/demo" mat-button>Démo</a>
     <span class="fill-flex"></span>
+    <span [hidden]="!username">{{username}}</span>
     <span [hidden]="username">
       <button mat-icon-button (click)="connexion()">
         <mat-icon>fingerprint</mat-icon>
       </button>
     </span>
     <span [hidden]="!username">
-      {{username}}
       <button mat-icon-button (click)="deconnexion()">
         <mat-icon>exit_to_app</mat-icon>
       </button>
@@ -22,7 +23,8 @@
         </button> -->
   </mat-toolbar>
   <app-authentification [identifiant]="username"
-                        [hidden]="!showAuthForm" (auth)="authentification($event)"
+                        [hidden]="!showAuthForm"
+                        (auth)="authentification($event)"
   ></app-authentification>
 <!--
   <app-authentification (changement)="recupererIdentifiant($event)" ></app-authentification>

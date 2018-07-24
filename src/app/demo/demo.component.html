@@ -1,0 +1,6 @@
+<p>demo works!</p>
+<p #monElem class="toto" >html, css et javascript</p>
+<input [(ngModel)]="nom"  />
+<app-message></app-message>
+<app-message texte="le texte à afficher..." ></app-message>
+<app-message [(texte)]="nom" (tropLong)="effacer()"></app-message>

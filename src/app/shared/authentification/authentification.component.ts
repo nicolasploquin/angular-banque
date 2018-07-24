@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {AuthModel} from './auth-model';
 
 @Component({
@@ -6,7 +6,7 @@ import {AuthModel} from './auth-model';
   templateUrl: './authentification.component.html',
   styleUrls: ['./authentification.component.css']
 })
-export class AuthentificationComponent implements OnInit {
+export class AuthentificationComponent implements OnInit, OnChanges {
 
   @Input()
   identifiant: string;
@@ -18,8 +18,12 @@ export class AuthentificationComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-    this.model = new AuthModel(this.identifiant, '');
+  ngOnInit() {}
+  ngOnChanges() {
+    this.model = {
+      identifiant: this.identifiant,
+      motdepasse: ''
+    };
   }
   onSubmit() {
     if (this.model.identifiant !== ''
