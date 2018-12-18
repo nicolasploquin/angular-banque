@@ -22,4 +22,4 @@ import * as md from '@angular/material';
   ],
   declarations: []
 })
-export class MaterialModule { }
+export class AppMaterialModule { }

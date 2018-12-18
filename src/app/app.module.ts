@@ -5,7 +5,7 @@ import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {MaterialModule} from './material.module';
+import {AppMaterialModule} from './app-material.module';
 
 import {environment} from '../environments/environment';
 import {ROUTES} from './app.routes';
@@ -42,7 +42,7 @@ export const APP_IMPORTS = [
   FormsModule,
   HttpClientModule,
   RouterModule.forRoot(ROUTES),
-  MaterialModule,
+  AppMaterialModule,
   NgxsModule.forRoot([BanqueState])
 ];
 
