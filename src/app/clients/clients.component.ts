@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
 import {Client} from '../model/client';
 import {FormControl, Validators} from '@angular/forms';
 import {BanqueAsyncService} from '../services/banque-async.service';
@@ -6,6 +6,7 @@ import {BanqueRestService} from '../services/banque-rest.service';
 import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {BanqueState, LoadClients} from '../store/banque.state';
+import {BanqueService} from '../services/banque.service';
 
 @Component({
   selector: 'app-clients',
@@ -28,6 +29,7 @@ export class ClientsComponent implements OnInit, AfterViewInit {
 
   constructor(
     banque: Store,
+//    @Inject('BanqueService') data: BanqueService, // exemple, injection explicite par le nom du provider
     dataService: BanqueAsyncService
   ) {
     this.banque = banque;
