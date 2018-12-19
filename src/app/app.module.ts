@@ -52,8 +52,9 @@ export const APP_PROVIDERS = [
   // BanqueHttpService,
   // BanqueLocalAsyncService,
   // BanqueRestService,
-  // {provide: BanqueAsyncService, useClass: BanqueRestService}
-  {provide: BanqueAsyncService, useClass : environment.dataProvider}
+//  {provide: 'BanqueService', useClass: BanqueLocalService},
+//  { provide: 'BanqueService', useClass: environment.dataProvider}, // si interface
+  { provide: BanqueAsyncService, useClass : environment.dataProvider} // si classe abstraite
 ];
 
 @NgModule({

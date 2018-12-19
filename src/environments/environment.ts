@@ -6,7 +6,7 @@ import {BanqueLocalAsyncService} from '../app/services/banque-local-async.servic
 
 export const environment = {
   production: false,
-  api: 'https://banque-api.azurewebsites.net/api',
+  api: 'https://banque.azurewebsites.net/api',
   dataProvider: BanqueLocalAsyncService
 };
 
