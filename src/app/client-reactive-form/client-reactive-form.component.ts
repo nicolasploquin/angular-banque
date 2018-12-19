@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {defaultIfEmpty, map} from 'rxjs/operators';
+import {AddClient} from '../store/banque.state';
+import {BanqueAsyncService} from '../services/banque-async.service';
+import {Router} from '@angular/router';
+import {Store} from '@ngxs/store';
 
 @Component({
   selector: 'app-client-reactive-form',
@@ -30,7 +34,10 @@ export class ClientReactiveFormComponent implements OnInit {
 
 
   constructor(
-    private builder: FormBuilder
+    private builder: FormBuilder,
+    private dataService: BanqueAsyncService,
+    private router: Router,
+    private banque: Store
   ) { }
 
   ngOnInit() {
@@ -53,7 +60,13 @@ export class ClientReactiveFormComponent implements OnInit {
     this.comptes.push(this.builder.group(this.compteFormGroup));
   }
 
-  enregistrer() {
+  valider() {
     this.log = this.clientForm.value;
   }
+  enregistrer() {
+    this.banque.dispatch(new AddClient(this.clientForm.value));
+    this.router.navigate(['/clients']);
+  }
+
+
 }
