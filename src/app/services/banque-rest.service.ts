@@ -3,8 +3,9 @@ import {BanqueService} from './banque.service';
 import {HttpClient} from '@angular/common/http';
 import {Client} from '../model/client';
 import {BanqueAsyncService} from './banque-async.service';
-import {Observable} from 'rxjs';
 import {environment} from '../../environments/environment';
+import {Observable, EMPTY, of} from 'rxjs';
+import {catchError, retry} from 'rxjs/operators';
 
 @Injectable()
 export class BanqueRestService extends BanqueAsyncService {
@@ -28,6 +29,13 @@ export class BanqueRestService extends BanqueAsyncService {
   getClients(): Observable<Client[]> {
     return this.http
       .get<Client[]>(`${this.api}/clients`)
+      .pipe(
+        retry(3), // retry a failed request up to 3 times
+        catchError(error => {
+          console.error(`erreur lors de la récupération des clients à partir du serveur, caused by : ${error}`,error);
+          return of([]);
+        }) // then handle the error and return empty list
+      )
       ;
   }
   addClient(client: Client): Observable<void> {
