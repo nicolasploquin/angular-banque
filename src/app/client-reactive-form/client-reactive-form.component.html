@@ -21,6 +21,24 @@
                i18n="Erreur champ prenom|Erreur champ longueur minimum 3 caractères@@clientFormInputPrenomErreur"
     >Le prénom doit contenir 3 lettres au minimum.</mat-error>
   </mat-form-field>
+  <div formArrayName="comptes">
+
+    <h3>Comptes</h3>
+    <button mat-button (click)="addCompte()">Ajouter</button>
+    <div *ngFor="let compte of comptes.controls; let i = index"
+      [formGroupName]="i">
+      <mat-form-field>
+        <input matInput placeholder="Numéro"
+               formControlName="numero"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Intitulé"
+               formControlName="intitule"
+        />
+      </mat-form-field>
+    </div>
+  </div>
   <button mat-button color="primary"
           type="submit" [disabled]="!clientForm.valid"
           i18n="Bouton enregistrer|Enregistrer le noouveau client@@clientFormBoutonEnregistrer"
