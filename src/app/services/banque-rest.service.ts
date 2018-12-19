@@ -10,7 +10,7 @@ import {environment} from '../../environments/environment';
 export class BanqueRestService extends BanqueAsyncService {
 
   private http: HttpClient;
-  private api = environment.api;
+  private api: string = environment.api;
 
   constructor(http: HttpClient) {
     super();
