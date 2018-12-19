@@ -3,6 +3,7 @@ import { RootComponent } from './root.component';
 import {APP_DECLARATIONS, APP_IMPORTS, APP_PROVIDERS, AppModule} from '../app.module';
 import {APP_BASE_HREF} from '@angular/common';
 import {RouterTestingModule} from '@angular/router/testing';
+
 describe('RootComponent', () => {
   beforeEach(async(() => {
     TestBed
