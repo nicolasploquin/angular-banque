@@ -44,7 +44,7 @@ export class BanqueLocalAsyncService implements BanqueAsyncService {
     this._clients.push(client);
     this.save();
 
-    return EMPTY;
+    return of(null);
   }
 
 
