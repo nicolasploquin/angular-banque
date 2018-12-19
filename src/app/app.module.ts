@@ -3,8 +3,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import {NgxsModule} from '@ngxs/store';
+
 import {AppMaterialModule} from './app-material.module';
 
 import {environment} from '../environments/environment';
@@ -14,12 +16,12 @@ import {RootComponent} from './root/root.component';
 import {ClientsComponent} from './clients/clients.component';
 import {ClientComponent} from './client/client.component';
 import {ClientFormComponent} from './client-form/client-form.component';
+import {ClientReactiveFormComponent} from './client-reactive-form/client-reactive-form.component';
 import {AuthentificationComponent} from './shared/authentification/authentification.component';
 import {DemoComponent} from './demo/demo.component';
 import {MessageComponent} from './shared/message/message.component';
 import {CapitalizePipe} from './pipes/capitalize.pipe';
 import {BanqueAsyncService} from './services/banque-async.service';
-import {NgxsModule} from '@ngxs/store';
 import {BanqueState} from './store/banque.state';
 
 // registerLocaleData(localeFr, 'fr');
@@ -28,6 +30,7 @@ export const APP_DECLARATIONS = [
   RootComponent,
   ClientsComponent,
   ClientFormComponent,
+  ClientReactiveFormComponent,
   ClientComponent,
   CapitalizePipe,
   AuthentificationComponent,
@@ -40,6 +43,7 @@ export const APP_IMPORTS = [
   BrowserAnimationsModule,
   CommonModule,
   FormsModule,
+  ReactiveFormsModule,
   HttpClientModule,
   RouterModule.forRoot(ROUTES),
   AppMaterialModule,
@@ -52,8 +56,8 @@ export const APP_PROVIDERS = [
   // BanqueHttpService,
   // BanqueLocalAsyncService,
   // BanqueRestService,
-//  {provide: 'BanqueService', useClass: BanqueLocalService},
-//  { provide: 'BanqueService', useClass: environment.dataProvider}, // si interface
+  // {provide: 'BanqueService', useClass: BanqueLocalService},
+  // { provide: 'BanqueService', useClass: environment.dataProvider}, // si interface
   { provide: BanqueAsyncService, useClass : environment.dataProvider} // si classe abstraite
 ];
 
