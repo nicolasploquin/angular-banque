@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {AuthGuard} from '../auth/auth.guard';
 
 @Component({
   selector: 'app-root', // <app-root ></app-root>
@@ -15,14 +16,20 @@ export class RootComponent {
 
   ajd: Date = new Date();
 
+  constructor(
+    private guard: AuthGuard
+  ) { }
+
   connexion() {
     this.showAuthForm = !this.showAuthForm;
   }
   deconnexion() {
+    this.guard.authorized = false;
     this.username = '';
     this.showAuthForm = false;
   }
   authentification(user) {
+    this.guard.authorized = true;
     this.username = user;
     this.showAuthForm = false;
   }

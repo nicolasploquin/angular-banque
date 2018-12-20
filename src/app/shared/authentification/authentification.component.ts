@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {AuthModel} from './auth-model';
+import {AuthGuard} from '../../auth/auth.guard';
 
 @Component({
   selector: 'app-authentification',
@@ -15,8 +16,6 @@ export class AuthentificationComponent implements OnInit, OnChanges {
   auth: EventEmitter<string> = new EventEmitter<string>();
 
   model: AuthModel;
-
-  constructor() { }
 
   ngOnInit() {}
   ngOnChanges() {
