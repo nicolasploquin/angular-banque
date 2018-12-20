@@ -1,0 +1,49 @@
+<h2 i18n="Titre formulaire client|Création ou modification d'un nouveau client@@clientFormTitle">Nouveau client</h2>
+<small>reactive form</small>
+<form (submit)="enregistrer()" [formGroup]="clientForm">
+  <mat-form-field>
+    <input matInput placeholder="Nom du client"
+           i18n-placeholder="Champ nom|Nom du nouveau client@@clientFormInputNom"
+           required
+           formControlName="nom"
+    />
+    <mat-error [hidden]="!clientForm.valid"
+               i18n="Erreur champ nom|Erreur champ obligatoire@@clientFormInputNomErreur"
+    >Le nom est obligatoire.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <input matInput placeholder="Prénom du client"
+           i18n-placeholder="Champ prénom|Prénom du nouveau client@@clientFormInputPrenom"
+           pattern="[a-zA-Z]{3,}"
+           formControlName="prenom"
+    />
+    <mat-error [hidden]="!clientForm.valid"
+               i18n="Erreur champ prenom|Erreur champ longueur minimum 3 caractères@@clientFormInputPrenomErreur"
+    >Le prénom doit contenir 3 lettres au minimum.</mat-error>
+  </mat-form-field>
+  <div formArrayName="comptes">
+
+    <h3>Comptes</h3>
+    <button mat-button type="button" (click)="addCompte()">Ajouter</button>
+    <div *ngFor="let compte of comptes.controls; let i = index"
+      [formGroupName]="i">
+      <mat-form-field>
+        <input matInput placeholder="Numéro"
+               formControlName="numero"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Intitulé"
+               formControlName="intitule"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+  <button type="button"  mat-button (click)="valider()">Valider</button>
+  <button mat-button color="primary"
+          type="submit" [disabled]="!clientForm.valid"
+          i18n="Bouton enregistrer|Enregistrer le noouveau client@@clientFormBoutonEnregistrer"
+  >Enregistrer</button>
+</form>
+<pre>{{client | async | json}}</pre>
+<pre>{{log | json}}</pre>

@@ -14,7 +14,8 @@ export class BanqueLocalAsyncService implements BanqueAsyncService {
   }
 
   private load(): void {
-    this._clients = JSON.parse(localStorage.getItem('data')).clients;
+    const data = JSON.parse(localStorage.getItem('data'));
+    this._clients = data?data.clients:[];
   }
 
   private save(): void {
@@ -44,7 +45,7 @@ export class BanqueLocalAsyncService implements BanqueAsyncService {
     this._clients.push(client);
     this.save();
 
-    return EMPTY;
+    return of(null);
   }
 
 

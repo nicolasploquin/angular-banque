@@ -13,7 +13,8 @@ export class BanqueLocalService implements BanqueService {
   }
 
   private load(): void {
-    this._clients = JSON.parse(localStorage.getItem('data')).clients;
+    const data = JSON.parse(localStorage.getItem('data'));
+    this._clients = data?data.clients:[];
   }
 
   private save(): void {
