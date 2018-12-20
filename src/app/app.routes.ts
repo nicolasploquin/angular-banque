@@ -5,6 +5,7 @@ import {ClientFormComponent} from './client-form/client-form.component';
 import {ClientComponent} from './client/client.component';
 import {DemoComponent} from './demo/demo.component';
 import {ClientReactiveFormComponent} from './client-reactive-form/client-reactive-form.component';
+import {AuthGuard} from './auth/auth.guard';
 
 // export const ROUTE_LISTE_CLIENTS = 'clients';
 
@@ -15,7 +16,9 @@ export const ROUTES: Routes = [{
 }, {
   path: 'clients', component: ClientsComponent
 }, {
-  path: 'client/form', component: ClientReactiveFormComponent
+  path: 'client/form',
+  component: ClientReactiveFormComponent,
+  canActivate: [AuthGuard]
 }, {
   path: 'client/:id', component: ClientComponent
 }, {
