@@ -10,7 +10,7 @@ import {NgxsModule} from '@ngxs/store';
 import {AppMaterialModule} from './app-material.module';
 
 import {environment} from '../environments/environment';
-import {ROUTES} from './app.routes';
+import {RoutingModule} from './routing.module';
 
 import {RootComponent} from './root/root.component';
 import {ClientsComponent} from './clients/clients.component';
@@ -45,7 +45,7 @@ export const APP_IMPORTS = [
   FormsModule,
   ReactiveFormsModule,
   HttpClientModule,
-  RouterModule.forRoot(ROUTES),
+  RoutingModule,
   AppMaterialModule,
   NgxsModule.forRoot([BanqueState])
 ];
