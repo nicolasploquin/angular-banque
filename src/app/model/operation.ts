@@ -5,6 +5,11 @@ export class Operation {
     montant: number;
     type: string;
 
-    constructor(){}
-    
+    constructor(params?: any){
+        this.date = params.date?params.date:new Date();
+        this.libelle = params.libelle?params.libelle:"";
+        this.montant = params.montant?params.montant:0;
+        this.type = params.type?params.type:"";
+    }
+
 }
