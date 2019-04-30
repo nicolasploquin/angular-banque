@@ -23,7 +23,10 @@ export class ClientComponent implements OnInit {
   }
 
   ngOnInit() {
-    const id = parseInt(this.route.snapshot.params['id'], 10);
+    // const id = +this.route.snapshot.params['id'];
+    // const id = parseInt(this.route.snapshot.params['id']);
+    // const id = Number(this.route.snapshot.params['id']);     // JavaScript
+    const id = this.route.snapshot.params['id'] as number;      // TypeScript
     this.dataService.getClient(id)
       .subscribe( client => this.client = client );
     // this.client = this.dataService.getClient(id);
