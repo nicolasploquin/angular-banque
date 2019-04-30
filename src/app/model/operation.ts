@@ -6,6 +6,7 @@ export class Operation {
     type: string;
 
     constructor(params?: any){
+        if(typeof(params) !== "object") return;
         this.date = params.date?params.date:new Date();
         this.libelle = params.libelle?params.libelle:"";
         this.montant = params.montant?params.montant:0;
