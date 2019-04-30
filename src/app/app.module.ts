@@ -4,13 +4,12 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 import {NgxsModule} from '@ngxs/store';
 
-import {AppMaterialModule} from './app-material.module';
+import {MaterialModule} from './material.module';
 
 import {environment} from '../environments/environment';
-import {ROUTES} from './app.routes';
+import {RoutingModule} from './routing.module';
 
 import {RootComponent} from './root/root.component';
 import {ClientsComponent} from './clients/clients.component';
@@ -45,8 +44,8 @@ export const APP_IMPORTS = [
   FormsModule,
   ReactiveFormsModule,
   HttpClientModule,
-  RouterModule.forRoot(ROUTES),
-  AppMaterialModule,
+  RoutingModule,
+  MaterialModule,
   NgxsModule.forRoot([BanqueState])
 ];
 
