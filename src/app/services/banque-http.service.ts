@@ -7,6 +7,8 @@ import {Observable} from 'rxjs';
 @Injectable()
 export class BanqueHttpService {
 
+  private url: string = 'https://core-webapi.azurewebsites.net/api';
+
   private httpClient: HttpClient;
 
   constructor(httpClient: HttpClient) {
@@ -16,7 +18,7 @@ export class BanqueHttpService {
   getClients(): Observable<Client[]> {
 
     return this.httpClient
-      .get<Client[]>('http://wildfly.westeurope.cloudapp.azure.com/clients')
+      .get<Client[]>(`${this.url}/clients`)
       // .pipe(
       //   retry(3), // 3 tentatives
       //   catchError( error => error.error.message)
