@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, TitleCasePipe} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxsModule} from '@ngxs/store';
@@ -22,6 +22,7 @@ import {MessageComponent} from './shared/message/message.component';
 import {CapitalizePipe} from './pipes/capitalize.pipe';
 import {BanqueAsyncService} from './services/banque-async.service';
 import {BanqueState} from './store/banque.state';
+import {NomLongPipe} from './pipes/nom-long.pipe';
 
 // registerLocaleData(localeFr, 'fr');
 
@@ -32,6 +33,7 @@ export const APP_DECLARATIONS = [
   ClientReactiveFormComponent,
   ClientComponent,
   CapitalizePipe,
+  NomLongPipe,
   AuthentificationComponent,
   DemoComponent,
   MessageComponent
@@ -50,6 +52,7 @@ export const APP_IMPORTS = [
 ];
 
 export const APP_PROVIDERS = [
+  // { provide: 'TitleCasePipe', useClass: TitleCasePipe },
   // { provide: LOCALE_ID, useValue: 'fr' },
   // BanqueLocalService,
   // BanqueHttpService,

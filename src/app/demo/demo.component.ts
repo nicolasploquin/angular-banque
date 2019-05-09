@@ -1,4 +1,5 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
+import {Client} from '../model/client';
 
 @Component({
   selector: 'app-demo',
@@ -11,6 +12,8 @@ export class DemoComponent implements OnInit {
   public monElem: ElementRef;
 
   public nom: string = 'test';
+
+  public client: Client = new Client();
 
 
   constructor(private renderer: Renderer2) { }
@@ -32,6 +35,11 @@ export class DemoComponent implements OnInit {
       'innerHTML',
       'nouveau contenu <strong>dynamique</strong>... c\'est cool !'
     );
+
+
+    this.client.nom = 'Leblanc';
+    this.client.prenom = 'Jean-Marc';
+
   }
 
 }

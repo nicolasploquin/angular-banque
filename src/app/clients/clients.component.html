@@ -2,7 +2,7 @@
 <mat-nav-list>
   <a mat-list-item [routerLink]='["/client",cli.id]'
      *ngFor="let cli of clients$ | async" >
-    {{cli.prenom | titlecase }} {{cli.nom | uppercase }}&nbsp;
+    {{cli.prenom | titlecase }} {{cli.nom | uppercase }}
     <span *ngIf="cli.comptes && cli.comptes.length"
           [matBadge]="cli.comptes.length" matBadgeOverlap="true"
           matBadgePosition="before" matBadgeColor="accent"
