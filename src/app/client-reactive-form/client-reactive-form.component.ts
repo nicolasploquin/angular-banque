@@ -13,7 +13,7 @@ import {Store} from '@ngxs/store';
 })
 export class ClientReactiveFormComponent implements OnInit {
 
-  log = {};
+  clientStatic = {};
 
   clientForm = new FormGroup({
     nom : new FormControl('', Validators.required),
@@ -75,7 +75,7 @@ export class ClientReactiveFormComponent implements OnInit {
   }
 
   valider() {
-    this.log = this.clientForm.value;
+    this.clientStatic = this.clientForm.value;
   }
   enregistrer() {
     this.banque.dispatch(new AddClient(this.clientForm.value));
