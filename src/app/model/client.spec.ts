@@ -15,5 +15,5 @@ describe('Classe métier Client', () => {
     expect(client.comptes).toBeTruthy();
     expect(client.comptes.length).toBe(0); // ===
   });
-  
+
 });
