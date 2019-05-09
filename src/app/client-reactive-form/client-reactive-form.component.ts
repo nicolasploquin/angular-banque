@@ -15,26 +15,28 @@ export class ClientReactiveFormComponent implements OnInit {
 
   log = {};
 
-  private compteFormGroup = {
-    numero: [''],
-    intitule: ['']
-  };
-
-  // clientForm = new FormGroup({
-  //   nom : new FormControl(''),
-  //   prenom : new FormControl('')
-  // });
-  clientForm = this.builder.group({
-    nom : ['',Validators.required],
-    prenom : [''],
-    comptes: this.builder.array([
-      this.builder.group(this.compteFormGroup)
-    ])
+  clientForm = new FormGroup({
+    nom : new FormControl('', Validators.required),
+    prenom : new FormControl('Marie'),
+    comptes: new FormArray([])
   });
+  tel = new FormControl('');
+
+  // private compteFormGroup = {
+  //   numero: [''],
+  //   intitule: ['']
+  // };
+  // clientForm = this.builder.group({
+  //   nom : ['',Validators.required],
+  //   prenom : ['Marie'],
+  //   comptes: this.builder.array([
+  //     this.builder.group(this.compteFormGroup)
+  //   ])
+  // });
 
 
   constructor(
-    private builder: FormBuilder,
+    // private builder: FormBuilder,
     private dataService: BanqueAsyncService,
     private router: Router,
     private banque: Store
@@ -43,9 +45,15 @@ export class ClientReactiveFormComponent implements OnInit {
   ngOnInit() {
     // initialisation d'un champ
     // this.clientForm.get('nom').setValue('Martin');
+
+    // this.clientForm.addControl('telephone', this.tel);
+
+
     this.clientForm.patchValue({
       nom: 'Dupont'
     });
+
+    this.addCompte();
   }
 
   get client() {
@@ -57,7 +65,13 @@ export class ClientReactiveFormComponent implements OnInit {
   }
 
   addCompte() {
-    this.comptes.push(this.builder.group(this.compteFormGroup));
+
+    this.comptes.push(new FormGroup({
+      numero : new FormControl(''),
+      intitule : new FormControl('')
+    }));
+
+    // this.comptes.push(this.builder.group(this.compteFormGroup));
   }
 
   valider() {
