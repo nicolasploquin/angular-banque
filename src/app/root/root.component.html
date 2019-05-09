@@ -1,26 +1,22 @@
 <header>
   <mat-toolbar color="primary">
     <h1>Ma Banque</h1>
+<!--    <span class="fill-flex"></span>-->
     <a routerLink="/clients" mat-button>Clients</a>
     <a routerLink="/client/form" mat-button>Nouveau</a>
     <a routerLink="/demo" mat-button>Démo</a>
     <span class="fill-flex"></span>
-    <span [hidden]="!username">{{username}}</span>
-    <span [hidden]="username">
+    <span [hidden]="!authenticated">{{username}}</span>
+    <span [hidden]="authenticated">
       <button mat-icon-button (click)="connexion()">
         <mat-icon>fingerprint</mat-icon>
       </button>
     </span>
-    <span [hidden]="!username">
+    <span [hidden]="!authenticated">
       <button mat-icon-button (click)="deconnexion()">
         <mat-icon>exit_to_app</mat-icon>
       </button>
     </span>
-    <!--    <span class="fill-flex"></span>
-        <span (click)="deconnexion()">{{username}}</span>
-        <button mat-icon-button (click)="connexion()" [hidden]="username">
-          <mat-icon>fingerprint</mat-icon>
-        </button> -->
   </mat-toolbar>
   <app-authentification [identifiant]="username"
                         [hidden]="!showAuthForm"
@@ -34,7 +30,8 @@
                         [hidden]="!showAuthForm" (auth)="authentification($event)"
   ></app-authentification>
   <p>{{utilisateur}}</p>
-  <input [(ngModel)]="utilisateur" />-->
+  <input [(ngModel)]="utilisateur" />
+  -->
 </header>
 <main class="mat-typography">
   <router-outlet></router-outlet>

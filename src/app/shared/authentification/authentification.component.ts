@@ -17,6 +17,8 @@ export class AuthentificationComponent implements OnInit, OnChanges {
 
   model: AuthModel;
 
+  // constructor(private authService: AuthGuard){}
+
   ngOnInit() {}
   ngOnChanges() {
     this.model = {
@@ -27,7 +29,9 @@ export class AuthentificationComponent implements OnInit, OnChanges {
   onSubmit() {
     if (this.model.identifiant !== ''
       && this.model.identifiant === this.model.motdepasse) {
+      this.model.motdepasse = '';
       this.auth.emit(this.model.identifiant);
+      // this.authService.authorized = true;
     }
   }
 

@@ -1,4 +1,4 @@
-import {Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-message',
@@ -28,8 +28,9 @@ export class MessageComponent implements OnInit, OnChanges, DoCheck {
   ngOnInit() {
   }
 
-  ngOnChanges() {
+  ngOnChanges(changes: SimpleChanges) {
     console.log('ngOnChange...');
+    console.dir(changes);
     console.log(this.texte.length);
     if (this.texte.length > 40) {
       this.tropLong.emit();

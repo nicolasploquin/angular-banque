@@ -11,7 +11,7 @@ import {AuthGuard} from '../auth/auth.guard';
   styleUrls: ['./root.component.css']
 })
 export class RootComponent {
-  username: string = '';
+  username: string = 'nicolas';
   showAuthForm = false;
 
   ajd: Date = new Date();
@@ -25,7 +25,7 @@ export class RootComponent {
   }
   deconnexion() {
     this.guard.authorized = false;
-    this.username = '';
+    // this.username = '';
     this.showAuthForm = false;
   }
   authentification(user) {
@@ -34,6 +34,9 @@ export class RootComponent {
     this.showAuthForm = false;
   }
 
+  get authenticated(): boolean {
+    return this.guard.authorized;
+  }
 
 
   // utilisateur = 'quelqu\'un';

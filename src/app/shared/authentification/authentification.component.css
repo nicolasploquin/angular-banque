@@ -1,4 +1,4 @@
-:host {
+:host { /* pseudo classe désignant <app-authentification /> */
   position: absolute;
   right: 0;
   background-color: #eee;
