@@ -13,7 +13,7 @@ describe('workspace-project App', () => {
     pageClients = new ClientsPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display app title', () => {
     pageRoot.navigateTo();
     expect(pageRoot.getAppTitle()).toEqual('Ma Banque');
   });

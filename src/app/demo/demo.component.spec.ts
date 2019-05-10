@@ -6,6 +6,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {APP_BASE_HREF} from '@angular/common';
 import {MessageComponent} from '../shared/message/message.component';
 import {FormsModule} from '@angular/forms';
+import {NomLongPipe} from '../pipes/nom-long.pipe';
 
 describe('DemoComponent', () => {
   let component: DemoComponent;
@@ -13,7 +14,7 @@ describe('DemoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DemoComponent, MessageComponent],
+      declarations: [DemoComponent, MessageComponent, NomLongPipe],
       imports: [RouterTestingModule, FormsModule],
       providers: [{provide: APP_BASE_HREF, useValue: '/fr/'}]
     })

@@ -12,7 +12,7 @@
     "buildProd": "ng test --prod --watch=false && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e --port=4600",
+    "e2e": "ng e2e --port=4601",
     "e2eEN": "ng e2e --port=4600 --configuration=en",
     "i18": "ng xi18n --outputPath=locale2 --i18n-locale=fr"
   },
