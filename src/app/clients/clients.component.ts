@@ -7,6 +7,7 @@ import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 import {BanqueState, LoadClients} from '../store/banque.state';
 import {BanqueService} from '../services/banque.service';
+import { map, retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-clients',
@@ -40,7 +41,16 @@ export class ClientsComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     console.log('clients onInit()');
     this.banque.dispatch(new LoadClients());
-//    this.clients = this.dataService.getClients(); //.subscribe( data => this.clients = data );
+    // this.clients = this.dataService.getClients();                         // BanqueLocalService
+    // let mapClient = map( (data: Client[]) => data.map(cli => new Client(cli)) );
+    // mapClient(this.dataService.getClients()).subscribe( data => this.clients = data );  // BanqueHttpService
+    
+    // this.dataService.getClients()
+    //   .pipe(
+    //     retry(3),
+    //     map( (data: Client[]) => data.map(cli => new Client(cli)) )
+    //   )
+    //   .subscribe( data => this.clients = data );
   }
 
   // Rechargement de la liste à chaque affichage du  composant

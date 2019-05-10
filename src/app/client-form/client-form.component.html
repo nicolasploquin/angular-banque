@@ -3,12 +3,15 @@
   <mat-form-field>
     <input matInput placeholder="Nom du client" name="nom"
            i18n-placeholder="Champ nom|Nom du nouveau client@@clientFormInputNom"
-           [(ngModel)]="client.nom" #champNom="ngModel"
+           [(ngModel)]="client.nom"
            required
     />
-    <mat-error [hidden]="champNom.valid"
+    <mat-error i18n="Erreur champ nom|Erreur champ obligatoire@@clientFormInputNomErreur">
+      Le nom est obligatoire.
+    </mat-error>
+    <!-- <mat-error [hidden]="champNom.valid"
                i18n="Erreur champ nom|Erreur champ obligatoire@@clientFormInputNomErreur"
-      >Le nom est obligatoire.</mat-error>
+      >Le nom est obligatoire.</mat-error> -->
   </mat-form-field>
   <mat-form-field>
     <input matInput placeholder="Prénom du client" name="prenom"

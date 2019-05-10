@@ -70,6 +70,32 @@
         <note priority="1" from="description">Enregistrer le noouveau client</note>
         <note priority="1" from="meaning">Bouton enregistrer</note>
       </trans-unit>
+      <trans-unit id="clientFormCompteSousTitre" datatype="html">
+        <source>Comptes</source>
+        <target>Accounts</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
+          <context context-type="linenumber">26</context>
+        </context-group>
+        <note priority="1" from="description">Ajout d&apos;un compte au client</note>
+        <note priority="1" from="meaning">Titre sous-formulaire compte</note>
+      </trans-unit>
+      <trans-unit id="clientFormCompteNumero" datatype="html">
+        <source>Numéro</source>
+        <target>ID</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
+          <context context-type="linenumber">31</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="clientFormCompteIntitule" datatype="html">
+        <source>Intitulé</source>
+        <target>Label</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
+          <context context-type="linenumber">36</context>
+        </context-group>
+      </trans-unit>
     </body>
   </file>
 </xliff>

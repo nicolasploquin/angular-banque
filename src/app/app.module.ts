@@ -1,16 +1,15 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {LOCALE_ID, NgModule} from '@angular/core';
+import {CommonModule, TitleCasePipe} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 import {NgxsModule} from '@ngxs/store';
 
-import {AppMaterialModule} from './app-material.module';
+import {MaterialModule} from './material.module';
 
 import {environment} from '../environments/environment';
-import {ROUTES} from './app.routes';
+import {RoutingModule} from './routing.module';
 
 import {RootComponent} from './root/root.component';
 import {ClientsComponent} from './clients/clients.component';
@@ -23,7 +22,11 @@ import {MessageComponent} from './shared/message/message.component';
 import {CapitalizePipe} from './pipes/capitalize.pipe';
 import {BanqueAsyncService} from './services/banque-async.service';
 import {BanqueState} from './store/banque.state';
+import {NomLongPipe} from './pipes/nom-long.pipe';
 
+// Traduction du framework angular (pipe date, materials)
+// import {registerLocaleData} from '@angular/common';
+// import localeFr from '@angular/common/locales/fr';
 // registerLocaleData(localeFr, 'fr');
 
 export const APP_DECLARATIONS = [
@@ -33,6 +36,7 @@ export const APP_DECLARATIONS = [
   ClientReactiveFormComponent,
   ClientComponent,
   CapitalizePipe,
+  NomLongPipe,
   AuthentificationComponent,
   DemoComponent,
   MessageComponent
@@ -45,12 +49,13 @@ export const APP_IMPORTS = [
   FormsModule,
   ReactiveFormsModule,
   HttpClientModule,
-  RouterModule.forRoot(ROUTES),
-  AppMaterialModule,
+  RoutingModule,
+  MaterialModule,
   NgxsModule.forRoot([BanqueState])
 ];
 
 export const APP_PROVIDERS = [
+  // { provide: 'TitleCasePipe', useClass: TitleCasePipe },
   // { provide: LOCALE_ID, useValue: 'fr' },
   // BanqueLocalService,
   // BanqueHttpService,

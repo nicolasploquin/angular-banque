@@ -5,14 +5,18 @@
       <trans-unit id="clientsCmpTitre" datatype="html">
         <source>Liste des clients</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/clients/clients.component.ts</context>
+          <context context-type="sourcefile">app/clients/clients.component.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
       </trans-unit>
       <trans-unit id="clientFormTitle" datatype="html">
         <source>Nouveau client</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/client-form/client-form.component.ts</context>
+          <context context-type="sourcefile">app/client-form/client-form.component.html</context>
+          <context context-type="linenumber">1</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
           <context context-type="linenumber">1</context>
         </context-group>
         <note priority="1" from="description">Création ou modification d&apos;un nouveau client</note>
@@ -21,17 +25,27 @@
       <trans-unit id="clientFormInputNom" datatype="html">
         <source>Nom du client</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/client-form/client-form.component.ts</context>
+          <context context-type="sourcefile">app/client-form/client-form.component.html</context>
           <context context-type="linenumber">4</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
+          <context context-type="linenumber">5</context>
         </context-group>
         <note priority="1" from="description">Nom du nouveau client</note>
         <note priority="1" from="meaning">Champ nom</note>
       </trans-unit>
       <trans-unit id="clientFormInputNomErreur" datatype="html">
-        <source>Le nom est obligatoire.</source>
+        <source>
+      Le nom est obligatoire.
+    </source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/client-form/client-form.component.ts</context>
-          <context context-type="linenumber">11</context>
+          <context context-type="sourcefile">app/client-form/client-form.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
+          <context context-type="linenumber">10</context>
         </context-group>
         <note priority="1" from="description">Erreur champ obligatoire</note>
         <note priority="1" from="meaning">Erreur champ nom</note>
@@ -39,8 +53,12 @@
       <trans-unit id="clientFormInputPrenom" datatype="html">
         <source>Prénom du client</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/client-form/client-form.component.ts</context>
-          <context context-type="linenumber">14</context>
+          <context context-type="sourcefile">app/client-form/client-form.component.html</context>
+          <context context-type="linenumber">17</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
+          <context context-type="linenumber">15</context>
         </context-group>
         <note priority="1" from="description">Prénom du nouveau client</note>
         <note priority="1" from="meaning">Champ prénom</note>
@@ -48,8 +66,12 @@
       <trans-unit id="clientFormInputPrenomErreur" datatype="html">
         <source>Le prénom doit contenir 3 lettres au minimum.</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/client-form/client-form.component.ts</context>
-          <context context-type="linenumber">21</context>
+          <context context-type="sourcefile">app/client-form/client-form.component.html</context>
+          <context context-type="linenumber">24</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
+          <context context-type="linenumber">20</context>
         </context-group>
         <note priority="1" from="description">Erreur champ longueur minimum 3 caractères</note>
         <note priority="1" from="meaning">Erreur champ prenom</note>
@@ -57,8 +79,12 @@
       <trans-unit id="clientFormBoutonEnregistrer" datatype="html">
         <source>Enregistrer</source>
         <context-group purpose="location">
-          <context context-type="sourcefile">app/client-form/client-form.component.ts</context>
-          <context context-type="linenumber">37</context>
+          <context context-type="sourcefile">app/client-form/client-form.component.html</context>
+          <context context-type="linenumber">40</context>
+        </context-group>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/client-reactive-form/client-reactive-form.component.html</context>
+          <context context-type="linenumber">45</context>
         </context-group>
         <note priority="1" from="description">Enregistrer le noouveau client</note>
         <note priority="1" from="meaning">Bouton enregistrer</note>
@@ -86,7 +112,6 @@
           <context context-type="linenumber">36</context>
         </context-group>
       </trans-unit>
-
     </body>
   </file>
 </xliff>

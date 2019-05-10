@@ -14,7 +14,8 @@ export class BanqueLocalService implements BanqueService {
 
   private load(): void {
     const data = JSON.parse(localStorage.getItem('data'));
-    this._clients = data?data.clients:[];
+    // this._clients = data?data.clients:[];
+    this._clients = data.clients || [];
   }
 
   private save(): void {
@@ -30,7 +31,7 @@ export class BanqueLocalService implements BanqueService {
   }
 
   addClient(client: Client): void {
-    // client.id = Math.max(...this._clients.map(cli => cli.id)) + 1;
+    client.id = Math.max(...this._clients.map(cli => cli.id)) + 1;
     // client.id = this._clients.reduce(function(cli1, cli2){
     //     return cli1.id > cli2.id ? cli1 : cli2;
     // }).id + 1;
