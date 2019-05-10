@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {CommonModule, TitleCasePipe} from '@angular/common';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
@@ -24,6 +24,9 @@ import {BanqueAsyncService} from './services/banque-async.service';
 import {BanqueState} from './store/banque.state';
 import {NomLongPipe} from './pipes/nom-long.pipe';
 
+// Traduction du framework angular (pipe date, materials)
+// import {registerLocaleData} from '@angular/common';
+// import localeFr from '@angular/common/locales/fr';
 // registerLocaleData(localeFr, 'fr');
 
 export const APP_DECLARATIONS = [

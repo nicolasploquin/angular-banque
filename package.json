@@ -14,7 +14,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e --port=4601",
     "e2eEN": "ng e2e --port=4600 --configuration=en",
-    "i18": "ng xi18n --outputPath=locale2 --i18n-locale=fr"
+    "i18n": "ng xi18n --outputPath=locale3 --i18n-locale=fr"
   },
   "private": true,
   "dependencies": {

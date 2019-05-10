@@ -23,17 +23,17 @@
   </mat-form-field>
 
   <div formArrayName="comptes">
-    <h3>Comptes</h3>
+    <h3 i18n="Titre sous-formulaire compte|Ajout d'un compte au client@@clientFormCompteSousTitre">Comptes</h3>
     <button mat-button type="button" (click)="addCompte()">Ajouter</button>
     <div *ngFor="let compte of comptes.controls; let i = index"
       [formGroupName]="i">
       <mat-form-field>
-        <input matInput placeholder="Numéro"
+        <input matInput placeholder="Numéro" i18n-placeholder="@@clientFormCompteNumero"
                formControlName="numero"
         />
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Intitulé"
+        <input matInput placeholder="Intitulé" i18n-placeholder="@@clientFormCompteIntitule"
                formControlName="intitule"
         />
       </mat-form-field>
@@ -42,7 +42,7 @@
   <button type="button" mat-button (click)="valider()">Valider</button>
   <button mat-button color="primary"
           type="submit" [disabled]="clientForm.invalid"
-          i18n="Bouton enregistrer|Enregistrer le noouveau client@@clientFormBoutonEnregistrer">
+          i18n="Bouton enregistrer|Enregistrer le nouveau client avec ses comptes@@clientFormBoutonEnregistrer">
     Enregistrer
   </button>
 </form>

@@ -1,4 +1,5 @@
 <h2>{{client.prenom | capitalize}} {{client.nom | uppercase}}</h2>
+<em>{client.comptes.length, plural, =0 {aucun compte} =1 {un compte} few {quelques comptes} other {{{client.comptes.length}} comptes}} ({{client.comptes.length}})</em>
 <mat-list >
   <mat-list-item *ngFor="let cpt of client.comptes">
     {{cpt.numero}} {{cpt.intitule}}

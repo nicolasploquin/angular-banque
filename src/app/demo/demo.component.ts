@@ -15,7 +15,6 @@ export class DemoComponent implements OnInit {
 
   public client: Client = new Client();
 
-
   constructor(private renderer: Renderer2) { }
 
   effacer(){
