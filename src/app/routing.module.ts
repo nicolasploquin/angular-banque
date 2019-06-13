@@ -7,11 +7,12 @@ import { ClientComponent } from './client/client.component';
 import { DemoComponent } from './demo/demo.component';
 import { ClientReactiveFormComponent } from './client-reactive-form/client-reactive-form.component';
 import { AuthGuard } from './auth/auth.guard';
+import {HomeComponent} from './home/home.component';
 
 // export const ROUTE_LISTE_CLIENTS = 'clients';
 
 const ROUTES: Routes = [{
-  path: '', component: ClientsComponent, pathMatch: 'full'
+  path: '', component: HomeComponent, pathMatch: 'full'
 }, {
   path: 'demo', component: DemoComponent
 }, {
