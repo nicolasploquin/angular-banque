@@ -23,6 +23,7 @@ import {CapitalizePipe} from './pipes/capitalize.pipe';
 import {BanqueAsyncService} from './services/banque-async.service';
 import {BanqueState} from './store/banque.state';
 import {NomLongPipe} from './pipes/nom-long.pipe';
+import {HomeComponent} from './home/home.component';
 
 // Traduction du framework angular (pipe date, materials)
 // import {registerLocaleData} from '@angular/common';
@@ -30,16 +31,17 @@ import {NomLongPipe} from './pipes/nom-long.pipe';
 // registerLocaleData(localeFr, 'fr');
 
 export const APP_DECLARATIONS = [
-  RootComponent,
+  AuthentificationComponent,
   ClientsComponent,
   ClientFormComponent,
   ClientReactiveFormComponent,
   ClientComponent,
-  CapitalizePipe,
-  NomLongPipe,
-  AuthentificationComponent,
   DemoComponent,
-  MessageComponent
+  MessageComponent,
+  HomeComponent,
+  RootComponent,
+  CapitalizePipe,
+  NomLongPipe
 ];
 
 export const APP_IMPORTS = [
