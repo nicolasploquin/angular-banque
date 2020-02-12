@@ -30,7 +30,6 @@
     "@angular/platform-browser-dynamic": "^9.0.0",
     "@angular/router": "^9.0.0",
     "@ngxs/store": "^3.6.2",
-    "core-js": "^3.6.4",
     "rxjs": "^6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"
@@ -48,7 +47,6 @@
     "jasmine-spec-reporter": "^4.2.1",
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
-    "karma-cli": "^2.0.0",
     "karma-coverage-istanbul-reporter": "^2.1.1",
     "karma-jasmine": "^3.1.1",
     "karma-jasmine-html-reporter": "^1.5.2",
