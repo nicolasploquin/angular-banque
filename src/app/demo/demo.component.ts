@@ -8,7 +8,7 @@ import {Client} from '../model/client';
 })
 export class DemoComponent implements OnInit {
 
-  @ViewChild('monElem')
+  @ViewChild('monElem', { static: true })
   public monElem: ElementRef;
 
   public nom: string = 'test';
