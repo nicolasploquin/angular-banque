@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Client} from '../model/client';
 import {BanqueHttpService} from '../services/banque-http.service';
@@ -17,7 +17,7 @@ export class ClientComponent implements OnInit {
 
   client: Client = new Client();
 
-  constructor(dataService: BanqueAsyncService, route: ActivatedRoute) {
+  constructor(@Inject('BanqueAsyncService') dataService: BanqueAsyncService, route: ActivatedRoute) {
     this.dataService = dataService;
     this.route = route;
   }

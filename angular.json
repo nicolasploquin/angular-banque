@@ -20,14 +20,14 @@
           "options": {
             "aot": true,
             "localize": [
-              "fr"
+              "en"
             ],
             "outputPath": "dist/fr/",
             "baseHref": "/fr/",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
-            "tsConfig": "src/tsconfig.app.json",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
               "src/assets",
               "src/favicon.ico"
@@ -41,6 +41,29 @@
             ]
           },
           "configurations": {
+            "options": {
+              "aot": true,
+              "localize": [
+                "fr"
+              ],
+              "outputPath": "dist/fr/",
+              "baseHref": "/fr/",
+              "index": "src/index.html",
+              "main": "src/main.ts",
+              "polyfills": "src/polyfills.ts",
+              "tsConfig": "tsconfig.app.json",
+              "assets": [
+                "src/assets",
+                "src/favicon.ico"
+              ],
+              "styles": [
+                "node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css",
+                "src/styles.css"
+              ],
+              "scripts": [
+                "lib/data-storage.js"
+              ]
+            },
             "en": {
               "budgets": [
                 {

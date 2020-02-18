@@ -3,9 +3,9 @@ import {Client} from '../model/client';
 import {FormControl, Validators} from '@angular/forms';
 import {BanqueAsyncService} from '../services/banque-async.service';
 import {BanqueRestService} from '../services/banque-rest.service';
-import {Select, Store} from '@ngxs/store';
+// import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
-import {BanqueState, LoadClients} from '../store/banque.state';
+// import {BanqueState, LoadClients} from '../store/banque.state';
 import {BanqueService} from '../services/banque.service';
 import { map, retry } from 'rxjs/operators';
 
@@ -16,35 +16,35 @@ import { map, retry } from 'rxjs/operators';
 })
 export class ClientsComponent implements OnInit, AfterViewInit {
 
-  private banque: Store;
+  // private banque: Store;
   private dataService: BanqueAsyncService;
 
   // clients: Array;
   // clients: Object[];
   // clients: Array<Client>;
-  @Select(BanqueState.clients)
+
+  // @Select(BanqueState.clients)
   clients$: Observable<Client[]>;
 
   client: Client;
 
 
   constructor(
-    banque: Store,
-//    @Inject('BanqueService') data: BanqueService, // exemple, injection explicite par le nom du provider
-    dataService: BanqueAsyncService
+    // banque: Store,
+    @Inject('BanqueAsyncService') dataService: BanqueAsyncService
   ) {
-    this.banque = banque;
+    // this.banque = banque;
     this.dataService = dataService;
     // this.clients = [];
   }
 
   ngOnInit() {
     console.log('clients onInit()');
-    this.banque.dispatch(new LoadClients());
-    // this.clients = this.dataService.getClients();                         // BanqueLocalService
+    // this.banque.dispatch(new LoadClients());
+    this.clients$ = this.dataService.getClients();                         // BanqueLocalService
     // let mapClient = map( (data: Client[]) => data.map(cli => new Client(cli)) );
     // mapClient(this.dataService.getClients()).subscribe( data => this.clients = data );  // BanqueHttpService
-    
+
     // this.dataService.getClients()
     //   .pipe(
     //     retry(3),

@@ -14,7 +14,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e --port=4601",
     "e2eEN": "ng e2e --port=4600 --configuration=en",
-    "i18n": "ng xi18n --outputPath=locale3 --i18n-locale=fr"
+    "i18n": "ng xi18n --outputPath=locale3 --i18n-locale=fr",
+    "postinstall": "ngcc --properties es2015 browser module main --first-only --create-ivy-entry-points"
   },
   "private": true,
   "dependencies": {
@@ -32,6 +33,7 @@
     "@ngxs/store": "^3.6.2",
     "rxjs": "^6.5.4",
     "tslib": "^1.10.0",
+    "webpack": "^4.41.6",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
