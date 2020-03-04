@@ -42,7 +42,7 @@ export class BanqueRestService implements BanqueAsyncService {
   }
   addClient(client: Client): Observable<void> {
     return this.http
-      .post<void>(`${this.api}/clients/post`, client)
+      .post<void>(`${this.api}/clients`, client)
       ;
   }
 
