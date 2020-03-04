@@ -14,19 +14,19 @@ import {MaterialModule} from './material.module';
 import {environment} from '../environments/environment';
 import {RoutingModule} from './routing.module';
 
-import {RootComponent} from './root/root.component';
-import {ClientsComponent} from './clients/clients.component';
-import {ClientComponent} from './client/client.component';
-import {ClientFormComponent} from './client-form/client-form.component';
-import {ClientReactiveFormComponent} from './client-reactive-form/client-reactive-form.component';
+import {RootComponent} from './components/root/root.component';
+import {ClientsComponent} from './components/clients/clients.component';
+import {CustomerComponent} from './components/customer/customer.component';
+import {ClientFormComponent} from './components/client-form/client-form.component';
+import {ClientReactiveFormComponent} from './components/client-reactive-form/client-reactive-form.component';
 import {AuthentificationComponent} from './shared/authentification/authentification.component';
-import {DemoComponent} from './demo/demo.component';
+import {DemoComponent} from './components/demo/demo.component';
 import {MessageComponent} from './shared/message/message.component';
 import {CapitalizePipe} from './pipes/capitalize.pipe';
 import {BanqueAsyncService} from './services/banque-async.service';
 // import {BanqueState} from './store/banque.state';
 import {NomLongPipe} from './pipes/nom-long.pipe';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './components/home/home.component';
 import {BanqueRestService} from './services/banque-rest.service';
 
 // Traduction du framework angular (pipe date, materials)
@@ -41,7 +41,7 @@ export const APP_DECLARATIONS = [
   ClientsComponent,
   ClientFormComponent,
   ClientReactiveFormComponent,
-  ClientComponent,
+  CustomerComponent,
   DemoComponent,
   MessageComponent,
   HomeComponent,

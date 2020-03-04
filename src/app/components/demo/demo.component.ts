@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {Client} from '../model/client';
+import {Client} from '../../model/client';
 
 @Component({
   selector: 'app-demo',

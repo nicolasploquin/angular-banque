@@ -7,23 +7,13 @@ export interface BanqueStateModel {
   clients: Client[];
 }
 
-export class LoadClients {
-  static readonly type = '[Banque] Rechargement clients';
-}
 
-export class AddClient {
-  static readonly type = '[Banque] Nouveau client';
-  constructor(public client: Client) {
-    console.log('constructor AddClient');
+@State<BanqueStateModel>({
+  name: 'banque',
+  defaults: {
+    clients: []
   }
-}
-
-// @State<BanqueStateModel>({
-//   name: 'banque',
-//   defaults: {
-//     clients: []
-//   }
-// })
+})
 export class BanqueState {
 
   @Selector()
@@ -68,6 +58,17 @@ export class BanqueState {
 
 }
 
+
+export class LoadClients {
+  static readonly type = '[Banque] Rechargement clients';
+}
+
+export class AddClient {
+  static readonly type = '[Banque] Nouveau client';
+  constructor(public client: Client) {
+    console.log('constructor AddClient');
+  }
+}
 
 
 

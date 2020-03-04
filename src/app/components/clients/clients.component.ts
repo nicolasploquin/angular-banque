@@ -1,12 +1,12 @@
 import {AfterViewInit, Component, Inject, OnInit} from '@angular/core';
-import {Client} from '../model/client';
+import {Client} from '../../model/client';
 import {FormControl, Validators} from '@angular/forms';
-import {BanqueAsyncService} from '../services/banque-async.service';
-import {BanqueRestService} from '../services/banque-rest.service';
+import {BanqueAsyncService} from '../../services/banque-async.service';
+import {BanqueRestService} from '../../services/banque-rest.service';
 // import {Select, Store} from '@ngxs/store';
 import {Observable} from 'rxjs';
 // import {BanqueState, LoadClients} from '../store/banque.state';
-import {BanqueService} from '../services/banque.service';
+import {BanqueService} from '../../services/banque.service';
 import { map, retry } from 'rxjs/operators';
 
 @Component({

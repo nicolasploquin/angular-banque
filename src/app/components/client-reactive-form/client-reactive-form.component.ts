@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {defaultIfEmpty, map} from 'rxjs/operators';
 // import {AddClient} from '../store/banque.state';
-import {BanqueAsyncService} from '../services/banque-async.service';
+import {BanqueAsyncService} from '../../services/banque-async.service';
 import {Router} from '@angular/router';
 import {Store} from '@ngxs/store';
 
@@ -80,7 +80,7 @@ export class ClientReactiveFormComponent implements OnInit {
   }
   enregistrer() {
     this.dataService.addClient(this.clientForm.value);
-//    this.banque.dispatch(new AddClient(this.clientForm.value));
+    // this.banque.dispatch(new AddClient(this.clientForm.value));
     this.router.navigate(['/clients']);
   }
 

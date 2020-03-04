@@ -1,9 +1,9 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import { Client } from '../model/client';
+import { Client } from '../../model/client';
 import { Router } from '@angular/router';
-import { BanqueHttpService } from '../services/banque-http.service';
-import {BanqueAsyncService} from '../services/banque-async.service';
-import {BanqueRestService} from '../services/banque-rest.service';
+import { BanqueHttpService } from '../../services/banque-http.service';
+import {BanqueAsyncService} from '../../services/banque-async.service';
+import {BanqueRestService} from '../../services/banque-rest.service';
 import {Store} from '@ngxs/store';
 // import {AddClient} from '../store/banque.state';
 

@@ -1,16 +1,14 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Client} from '../model/client';
-import {BanqueHttpService} from '../services/banque-http.service';
-import {BanqueAsyncService} from '../services/banque-async.service';
-import {BanqueRestService} from '../services/banque-rest.service';
+import {Client} from '../../model/client';
+import {BanqueAsyncService} from '../../services/banque-async.service';
 
 @Component({
   selector: 'app-client',
-  templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  templateUrl: './customer.component.html',
+  styleUrls: ['./customer.component.css']
 })
-export class ClientComponent implements OnInit {
+export class CustomerComponent implements OnInit {
 
   private route: ActivatedRoute;
   private dataService: BanqueAsyncService;
