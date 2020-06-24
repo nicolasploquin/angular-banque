@@ -43,7 +43,15 @@ export class BanqueRestService implements BanqueAsyncService {
   addClient(client: Client): Observable<void> {
     return this.http
       .post<void>(`${this.api}/clients`, client)
-      ;
+      .pipe(
+        catchError(error => {
+          console.error(`
+            erreur lors de l'ajout du client "${client.nom}" vers le serveur,
+            caused by : ${error.message}
+            `,error);
+          return of(null);
+        })
+      );
   }
 
   getClient(id: number): Observable<Client> {
