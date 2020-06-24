@@ -1,3 +1,9 @@
+:host {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 100vh;
+}
+
 mat-toolbar {
   flex-flow: row wrap;
   justify-content: flex-start;
