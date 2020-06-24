@@ -42,14 +42,8 @@ export class ClientsComponent implements OnInit, AfterViewInit {
     console.log('clients onInit()');
     // this.banque.dispatch(new LoadClients());
     this.clients$ = this.dataService.getClients();                         // BanqueLocalService
-    // let mapClient = map( (data: Client[]) => data.map(cli => new Client(cli)) );
-    // mapClient(this.dataService.getClients()).subscribe( data => this.clients = data );  // BanqueHttpService
 
     // this.dataService.getClients()
-    //   .pipe(
-    //     retry(3),
-    //     map( (data: Client[]) => data.map(cli => new Client(cli)) )
-    //   )
     //   .subscribe( data => this.clients = data );
   }
 
