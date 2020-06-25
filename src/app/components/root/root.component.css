@@ -29,3 +29,7 @@ p {
 h1 + .fill-flex {
   flex: 1 1 0;
 }
+
+.active {
+  background-color: #fff3;
+}
