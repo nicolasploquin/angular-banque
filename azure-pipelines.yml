@@ -27,8 +27,8 @@ steps:
     azureSubscription: 'ENI – VS Enterprise – MPN(b570f9c6-8200-4c2f-a8e1-a43579c9939e)'
     appType: 'webApp'
     WebAppName: 'eni-angular'
-    packageForLinux: '/dist'
-    
+    packageForLinux: 'dist/'
+
 - task: CopyFiles@2
   inputs:
     sourceFolder: 'iis_deploy'
