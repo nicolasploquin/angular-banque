@@ -8,13 +8,12 @@ import {Observable, of} from 'rxjs';
 import {catchError, retry} from 'rxjs/operators';
 
 @Injectable()
-export class BanqueRestService extends BanqueAsyncService {
+export class BanqueRestService implements BanqueAsyncService {
 
   private http: HttpClient;
   private api: string = environment.api;
 
   constructor(http: HttpClient) {
-    super();
     this.http = http;
   }
 
@@ -33,7 +32,7 @@ export class BanqueRestService extends BanqueAsyncService {
         retry(3), // retry a failed request up to 3 times
         catchError(error => {
           console.error(`
-            erreur lors de la récupération des clients à partir du serveur, 
+            erreur lors de la récupération des clients à partir du serveur,
             caused by : ${error.message}
             `,error);
           return of([]);
@@ -43,8 +42,16 @@ export class BanqueRestService extends BanqueAsyncService {
   }
   addClient(client: Client): Observable<void> {
     return this.http
-      .post<void>(`${this.api}/clients/post`, client)
-      ;
+      .post<void>(`${this.api}/clients`, client)
+      .pipe(
+        catchError(error => {
+          console.error(`
+            erreur lors de l'ajout du client "${client.nom}" vers le serveur,
+            caused by : ${error.message}
+            `,error);
+          return of(null);
+        })
+      );
   }
 
   getClient(id: number): Observable<Client> {

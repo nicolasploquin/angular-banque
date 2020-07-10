@@ -2,9 +2,9 @@
   <mat-toolbar color="primary">
     <h1>Ma Banque</h1>
 <!--    <span class="fill-flex"></span>-->
-    <a routerLink="/clients" mat-button>Clients</a>
-    <a routerLink="/client/form" mat-button>Nouveau</a>
-    <a routerLink="/demo" mat-button>Démo</a>
+    <a routerLink="/clients" routerLinkActive="active" mat-button>Clients</a>
+    <a routerLink="/client/form" routerLinkActive="active" mat-button>Nouveau</a>
+    <a routerLink="/demo" routerLinkActive="active" mat-button>Démo</a>
     <span class="fill-flex"></span>
     <span [hidden]="!authenticated">{{username}}</span>
     <span [hidden]="authenticated">
@@ -36,5 +36,7 @@
 <main class="mat-typography">
   <router-outlet></router-outlet>
 
-  <p>{{ajd | date:'EEEE d MMMM yyyy'}}</p>
 </main>
+<footer>
+  <p>&copy; ENI Service - {{ajd | date:'EEEE d MMMM yyyy'}}</p>
+</footer>

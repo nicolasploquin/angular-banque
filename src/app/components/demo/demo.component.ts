@@ -1,5 +1,5 @@
 import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
-import {Client} from '../model/client';
+import {Client} from '../../model/client';
 
 @Component({
   selector: 'app-demo',
@@ -8,7 +8,7 @@ import {Client} from '../model/client';
 })
 export class DemoComponent implements OnInit {
 
-  @ViewChild('monElem')
+  @ViewChild('monElem', { static: true })
   public monElem: ElementRef;
 
   public nom: string = 'test';

@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import {AuthModel} from './auth-model';
-import {AuthGuard} from '../../auth/auth.guard';
+import {AuthGuard} from '../../components/auth/auth.guard';
 
 @Component({
   selector: 'app-authentification',
@@ -17,7 +17,7 @@ export class AuthentificationComponent implements OnInit, OnChanges {
 
   model: AuthModel;
 
-  // constructor(private authService: AuthGuard){}
+  constructor(private authService: AuthGuard){}
 
   ngOnInit() {}
   ngOnChanges() {
@@ -31,7 +31,7 @@ export class AuthentificationComponent implements OnInit, OnChanges {
       && this.model.identifiant === this.model.motdepasse) {
       this.model.motdepasse = '';
       this.auth.emit(this.model.identifiant);
-      // this.authService.authorized = true;
+      this.authService.authorized = true;
     }
   }
 

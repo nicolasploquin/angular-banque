@@ -1,21 +1,12 @@
 import {Action, Selector, State, StateContext} from '@ngxs/store';
 import {Client} from '../model/client';
 import {BanqueAsyncService} from '../services/banque-async.service';
+import {Inject} from '@angular/core';
 
 export interface BanqueStateModel {
   clients: Client[];
 }
 
-export class LoadClients {
-  static readonly type = '[Banque] Rechargement clients';
-}
-
-export class AddClient {
-  static readonly type = '[Banque] Nouveau client';
-  constructor(public client: Client) {
-    console.log('constructor AddClient');
-  }
-}
 
 @State<BanqueStateModel>({
   name: 'banque',
@@ -31,15 +22,15 @@ export class BanqueState {
     return state.clients;
   }
 
-  constructor(private data: BanqueAsyncService) {
+  constructor(@Inject('BanqueAsyncService') private dataService: BanqueAsyncService) {
     console.log('constructor BanqueState');
   }
 
   @Action(LoadClients)
   loadClients(context: StateContext<BanqueStateModel>) {
-    console.log('@Action AddClient');
+    console.log('@Action LoadClients');
     const state = context.getState();
-    this.data.getClients().subscribe(
+    this.dataService.getClients().subscribe(
       clients => context.setState({
         ...state,
         clients: clients
@@ -54,7 +45,7 @@ export class BanqueState {
   ) {
     console.log('@Action AddClient');
     const state = context.getState();
-    this.data.addClient(action.client).subscribe(
+    this.dataService.addClient(action.client).subscribe(
       () => context.setState({
         ...state,
         clients: [
@@ -67,6 +58,17 @@ export class BanqueState {
 
 }
 
+
+export class LoadClients {
+  static readonly type = '[Banque] Rechargement clients';
+}
+
+export class AddClient {
+  static readonly type = '[Banque] Nouveau client';
+  constructor(public client: Client) {
+    console.log('constructor AddClient');
+  }
+}
 
 
 
