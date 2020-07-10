@@ -6,9 +6,6 @@ import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxsModule} from '@ngxs/store';
 
-import localeFr from '@angular/common/locales/fr';
-import localeFrExtra from '@angular/common/locales/extra/fr';
-
 import {MaterialModule} from './material.module';
 
 import {environment} from '../environments/environment';
@@ -29,12 +26,7 @@ import {NomLongPipe} from './pipes/nom-long.pipe';
 import {HomeComponent} from './components/home/home.component';
 import {BanqueRestService} from './services/banque-rest.service';
 
-// Traduction du framework angular (pipe date, materials)
-// import {registerLocaleData} from '@angular/common';
-// import localeFr from '@angular/common/locales/fr';
-// registerLocaleData(localeFr, 'fr');
-
-registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
+import '@angular/common/locales/global/fr';
 
 export const APP_DECLARATIONS = [
   AuthentificationComponent,
@@ -64,7 +56,6 @@ export const APP_IMPORTS = [
 
 export const APP_PROVIDERS = [
   // { provide: 'TitleCasePipe', useClass: TitleCasePipe },
-  // { provide: LOCALE_ID, useValue: 'fr-FR' },
   // BanqueLocalService,
   // BanqueHttpService,
   // BanqueLocalAsyncService,

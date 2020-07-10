@@ -1,14 +1,12 @@
 {
   "name": "angular-banque",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --port=4500 --open",
     "startProd": "ng serve --port=4400 --prod --open",
     "startEN": "ng serve --port=4400 --configuration=en --open",
-    "build": "ng build --prod",
-    "buildEN": "ng build --configuration=production-en",
-    "buildES6": "ng build --prod --output-path=dist-es6 !!!erreur",
+    "build": "ng build --prod --localize",
     "buildProd": "ng test --prod --watch=false && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
