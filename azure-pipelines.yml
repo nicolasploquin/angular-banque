@@ -27,11 +27,10 @@ steps:
     contents: 'web.config'
     TargetFolder: 'dist'
     OverWrite: true
-
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: 'ENI – VS Enterprise – MPN(b570f9c6-8200-4c2f-a8e1-a43579c9939e)'
+    azureSubscription: 'nploquin - ENI Service – VS Enterprise – MPN(b570f9c6-8200-4c2f-a8e1-a43579c9939e)'
     appType: 'webApp'
     WebAppName: 'eni-angular'
     packageForLinux: 'dist/'
